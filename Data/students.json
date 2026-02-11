@@ -498,5 +498,15 @@
     "Gender": "Female",
     "Course": "IT",
     "TermsAccepted": true
+  },
+  {
+    "Id": 51,
+    "FullName": "Gurbaz",
+    "Email": "gurbaz73@gmail.com",
+    "MobileNumber": "7904976644",
+    "DateOfBirth": "2005-01-01",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
   }
 ]
