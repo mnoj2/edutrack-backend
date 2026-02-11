@@ -3,5 +3,6 @@
 namespace EduTrack.API.Interfaces {
     public interface IStudentService {
 
+        Task<int?> GetStudentsCountAsync();
     }
 }

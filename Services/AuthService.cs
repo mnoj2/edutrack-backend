@@ -6,9 +6,11 @@ using System.Text.Json;
 namespace EduTrack.API.Services {
     public class AuthService : IAuthService {
 
+        private readonly IConfiguration _config;
         private readonly ILogger<AuthService> _logger;
 
-        public AuthService(ILogger<AuthService> logger) {
+        public AuthService(IConfiguration config,ILogger<AuthService> logger) {
+            _config = config;
             _logger = logger;
         }
 
@@ -16,7 +18,8 @@ namespace EduTrack.API.Services {
 
             _logger.LogInformation("Login attempt for User: {Username}", request.Username);
 
-            string filePath = "Data/user.json";
+            string filePath = _config["FilePath:User"];
+
             var jsonData = await System.IO.File.ReadAllTextAsync(filePath);
             var userData = JsonSerializer.Deserialize<User>(jsonData);
 

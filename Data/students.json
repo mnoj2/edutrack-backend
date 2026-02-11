@@ -1,0 +1,502 @@
+[
+  {
+    "Id": 1,
+    "FullName": "James Miller",
+    "Email": "james.miller@gmail.com",
+    "MobileNumber": "9820012345",
+    "DateOfBirth": "2005-05-15",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 2,
+    "FullName": "Sarah Jenkins",
+    "Email": "sarah.j.99@gmail.com",
+    "MobileNumber": "8104456789",
+    "DateOfBirth": "2006-02-28",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 3,
+    "FullName": "Michael Dawson",
+    "Email": "dawson.michael@gmail.com",
+    "MobileNumber": "7506612344",
+    "DateOfBirth": "2004-11-12",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 4,
+    "FullName": "Emily Thompson",
+    "Email": "emily.t.dev@gmail.com",
+    "MobileNumber": "9988776655",
+    "DateOfBirth": "2005-09-20",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 5,
+    "FullName": "Robert Wilson",
+    "Email": "wilson.robert@gmail.com",
+    "MobileNumber": "8877665544",
+    "DateOfBirth": "2003-01-05",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 6,
+    "FullName": "Jessica Taylor",
+    "Email": "jess.taylor@gmail.com",
+    "MobileNumber": "9122334455",
+    "DateOfBirth": "2004-08-14",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 7,
+    "FullName": "David Anderson",
+    "Email": "d.anderson@gmail.com",
+    "MobileNumber": "9845012345",
+    "DateOfBirth": "2005-03-10",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 8,
+    "FullName": "Ashley Moore",
+    "Email": "ashley.m88@gmail.com",
+    "MobileNumber": "7204455667",
+    "DateOfBirth": "2006-07-22",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 9,
+    "FullName": "Christopher Lee",
+    "Email": "chris.lee.dev@gmail.com",
+    "MobileNumber": "8901122334",
+    "DateOfBirth": "2004-12-05",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 10,
+    "FullName": "Amanda Garcia",
+    "Email": "amanda.g@gmail.com",
+    "MobileNumber": "9663344556",
+    "DateOfBirth": "2005-01-18",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 11,
+    "FullName": "Matthew Hall",
+    "Email": "m.hall.92@gmail.com",
+    "MobileNumber": "9448877665",
+    "DateOfBirth": "2003-10-25",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 12,
+    "FullName": "Jennifer Young",
+    "Email": "j.young@gmail.com",
+    "MobileNumber": "8123344556",
+    "DateOfBirth": "2004-04-30",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 13,
+    "FullName": "Daniel Wright",
+    "Email": "wright.daniel@gmail.com",
+    "MobileNumber": "7504455667",
+    "DateOfBirth": "2005-06-12",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 14,
+    "FullName": "Michelle King",
+    "Email": "michell.king@gmail.com",
+    "MobileNumber": "9880011223",
+    "DateOfBirth": "2006-09-08",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 15,
+    "FullName": "Thomas Scott",
+    "Email": "t.scott.77@gmail.com",
+    "MobileNumber": "9108877665",
+    "DateOfBirth": "2004-02-14",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 16,
+    "FullName": "Laura Green",
+    "Email": "green.laura@gmail.com",
+    "MobileNumber": "7406655443",
+    "DateOfBirth": "2005-11-03",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 17,
+    "FullName": "Kevin Baker",
+    "Email": "kbaker.eng@gmail.com",
+    "MobileNumber": "8861122334",
+    "DateOfBirth": "2003-08-19",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 18,
+    "FullName": "Stephanie Adams",
+    "Email": "steph.a@gmail.com",
+    "MobileNumber": "9945566778",
+    "DateOfBirth": "2004-05-27",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 19,
+    "FullName": "Brian Nelson",
+    "Email": "brian.n@gmail.com",
+    "MobileNumber": "9740011223",
+    "DateOfBirth": "2005-12-31",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 20,
+    "FullName": "Nicole Hill",
+    "Email": "nicole.hill@gmail.com",
+    "MobileNumber": "8105544332",
+    "DateOfBirth": "2006-01-15",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 21,
+    "FullName": "Edward Campbell",
+    "Email": "ed.campbell@gmail.com",
+    "MobileNumber": "7259988776",
+    "DateOfBirth": "2004-07-09",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 22,
+    "FullName": "Melissa Mitchell",
+    "Email": "melissa.m@gmail.com",
+    "MobileNumber": "9611122334",
+    "DateOfBirth": "2005-10-21",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 23,
+    "FullName": "George Roberts",
+    "Email": "george.r@gmail.com",
+    "MobileNumber": "9538877665",
+    "DateOfBirth": "2003-04-14",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 24,
+    "FullName": "Amy Carter",
+    "Email": "amy.carter@gmail.com",
+    "MobileNumber": "8892233445",
+    "DateOfBirth": "2004-11-29",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 25,
+    "FullName": "Steven Phillips",
+    "Email": "steven.p@gmail.com",
+    "MobileNumber": "7829988776",
+    "DateOfBirth": "2005-02-17",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 26,
+    "FullName": "Rachel Evans",
+    "Email": "rachel.e@gmail.com",
+    "MobileNumber": "9900112233",
+    "DateOfBirth": "2006-08-04",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 27,
+    "FullName": "Paul Turner",
+    "Email": "paul.turner@gmail.com",
+    "MobileNumber": "9141122334",
+    "DateOfBirth": "2004-03-22",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 28,
+    "FullName": "Rebecca Parker",
+    "Email": "rebecca.p@gmail.com",
+    "MobileNumber": "8127766554",
+    "DateOfBirth": "2005-09-11",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 29,
+    "FullName": "Kenneth Collins",
+    "Email": "k.collins@gmail.com",
+    "MobileNumber": "7204433221",
+    "DateOfBirth": "2003-12-07",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 30,
+    "FullName": "Deborah Edwards",
+    "Email": "deb.edwards@gmail.com",
+    "MobileNumber": "9844455667",
+    "DateOfBirth": "2004-06-19",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 31,
+    "FullName": "Andrew Stewart",
+    "Email": "a.stewart@gmail.com",
+    "MobileNumber": "8971122334",
+    "DateOfBirth": "2005-04-28",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 32,
+    "FullName": "Cynthia Morris",
+    "Email": "c.morris@gmail.com",
+    "MobileNumber": "9632233445",
+    "DateOfBirth": "2006-05-13",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 33,
+    "FullName": "Joshua Rogers",
+    "Email": "j.rogers@gmail.com",
+    "MobileNumber": "9480011223",
+    "DateOfBirth": "2004-10-02",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 34,
+    "FullName": "Kathleen Reed",
+    "Email": "k.reed@gmail.com",
+    "MobileNumber": "8129988776",
+    "DateOfBirth": "2005-07-25",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 35,
+    "FullName": "Gregory Cook",
+    "Email": "g.cook@gmail.com",
+    "MobileNumber": "7508877665",
+    "DateOfBirth": "2003-02-11",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 36,
+    "FullName": "Pamela Morgan",
+    "Email": "p.morgan@gmail.com",
+    "MobileNumber": "9886655443",
+    "DateOfBirth": "2004-01-29",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 37,
+    "FullName": "Ronald Bell",
+    "Email": "r.bell@gmail.com",
+    "MobileNumber": "9102233445",
+    "DateOfBirth": "2005-08-06",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 38,
+    "FullName": "Martha Murphy",
+    "Email": "m.murphy@gmail.com",
+    "MobileNumber": "7401122334",
+    "DateOfBirth": "2006-11-17",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 39,
+    "FullName": "Anthony Bailey",
+    "Email": "a.bailey@gmail.com",
+    "MobileNumber": "8862233445",
+    "DateOfBirth": "2004-05-04",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 40,
+    "FullName": "Christine Rivera",
+    "Email": "c.rivera@gmail.com",
+    "MobileNumber": "9940011223",
+    "DateOfBirth": "2005-12-14",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 41,
+    "FullName": "Douglas Cooper",
+    "Email": "d.cooper@gmail.com",
+    "MobileNumber": "9741122334",
+    "DateOfBirth": "2003-09-30",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 42,
+    "FullName": "Janet Richardson",
+    "Email": "j.richardson@gmail.com",
+    "MobileNumber": "8106655443",
+    "DateOfBirth": "2004-03-08",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 43,
+    "FullName": "Peter Cox",
+    "Email": "p.cox@gmail.com",
+    "MobileNumber": "7251122334",
+    "DateOfBirth": "2005-10-15",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 44,
+    "FullName": "Carolyn Howard",
+    "Email": "c.howard@gmail.com",
+    "MobileNumber": "9618877665",
+    "DateOfBirth": "2006-04-22",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 45,
+    "FullName": "Harold Ward",
+    "Email": "h.ward@gmail.com",
+    "MobileNumber": "9532233445",
+    "DateOfBirth": "2004-07-12",
+    "Gender": "Male",
+    "Course": "ECE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 46,
+    "FullName": "Victoria Torres",
+    "Email": "v.torres@gmail.com",
+    "MobileNumber": "8890011223",
+    "DateOfBirth": "2005-01-26",
+    "Gender": "Female",
+    "Course": "EEE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 47,
+    "FullName": "Lawrence Peterson",
+    "Email": "l.peterson@gmail.com",
+    "MobileNumber": "7821122334",
+    "DateOfBirth": "2003-06-05",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 48,
+    "FullName": "Catherine Gray",
+    "Email": "c.gray@gmail.com",
+    "MobileNumber": "9904433221",
+    "DateOfBirth": "2004-11-20",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 49,
+    "FullName": "Christian Ramirez",
+    "Email": "c.ramirez@gmail.com",
+    "MobileNumber": "9148877665",
+    "DateOfBirth": "2005-02-09",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 50,
+    "FullName": "Kelly James",
+    "Email": "k.james@gmail.com",
+    "MobileNumber": "8121122334",
+    "DateOfBirth": "2006-07-03",
+    "Gender": "Female",
+    "Course": "IT",
+    "TermsAccepted": true
+  }
+]

@@ -12,5 +12,15 @@ namespace EduTrack.API.Controllers {
         public StudentController(IStudentService studentService) {
             _studentService = studentService;
         }
+
+        [HttpGet("count")]
+        public async Task<IActionResult> getStudentsCount() {
+
+            var result = await _studentService.GetStudentsCountAsync();
+            if(result is null) {
+                return Unauthorized("Student Data Not Found");
+            }
+            return Ok(result);
+        }
     }
 }
