@@ -1,11 +1,14 @@
-using EduTrack.API.Interfaces;
-using EduTrack.API.Middlewares;
-using EduTrack.API.Services;
+using EduTrack.Interfaces;
+using EduTrack.Middlewares;
+using EduTrack.Services;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,6 +43,8 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
 
 app.UseAuthorization();
+
+app.UseExceptionHandler();
 
 app.MapControllers();
 

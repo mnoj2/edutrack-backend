@@ -1,41 +1,33 @@
-﻿using EduTrack.API.Dtos;
-using EduTrack.API.Interfaces;
-using EduTrack.API.Models;
-using System.Text.Json;
+﻿using EduTrack.Dtos;
+using EduTrack.Helpers;
+using EduTrack.Interfaces;
+using EduTrack.Models;
 
-namespace EduTrack.API.Services {
+namespace EduTrack.Services {
     public class AuthService : IAuthService {
 
         private readonly IConfiguration _config;
         private readonly ILogger<AuthService> _logger;
+        private readonly string _userFilePath;
 
         public AuthService(IConfiguration config,ILogger<AuthService> logger) {
             _config = config;
             _logger = logger;
+            _userFilePath = _config["FilePath:User"] ?? throw new Exception("User data filepath is not configured");
         }
 
-        public async Task<LoginResponse?> LoginAsync(LoginRequest request) {
+        public async Task<string?> LoginAsync(LoginRequest request) {
 
             _logger.LogInformation("Login attempt for User: {Username}", request.Username);
 
-            string filePath = _config["FilePath:User"];
+            var userData = await FileHelper.ReadFromJsonAsync<User>(_userFilePath);
 
-            var jsonData = await System.IO.File.ReadAllTextAsync(filePath);
-            var userData = JsonSerializer.Deserialize<User>(jsonData);
-
-            if(userData is not null) {
-                if(userData.Username == request.Username && userData.Password == request.Password) {
-
-                    _logger.LogInformation("Login attempt successful for User: {Username}", request.Username);
-
-                    return new LoginResponse {
-                        Message = "Login Successful!"
-                    };
-                }
+            if(userData is not null && (userData.Username == request.Username && userData.Password == request.Password))  {
+                _logger.LogInformation("Login attempt successful for User: {Username}", request.Username);
+                return "login successful";
             }
 
             _logger.LogWarning("Login failed for User: {Username}", request.Username);
-
             return null;
         }
     }

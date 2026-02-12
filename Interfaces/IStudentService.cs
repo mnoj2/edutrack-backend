@@ -1,12 +1,12 @@
-﻿using EduTrack.API.Dtos;
-using EduTrack.API.Models;
+﻿using EduTrack.Models;
 using EduTrack.Dtos;
 
-namespace EduTrack.API.Interfaces {
+namespace EduTrack.Interfaces {
     public interface IStudentService {
 
         Task<List<Student>?> GetStudentsAsync();
         Task<int?> GetStudentsCountAsync();
-        Task<StudentAddResponse?> AddStudentAsync(StudentAddRequest student);
+        Task<string?> AddStudentAsync(StudentAddRequest student);
+        Task<string?> DeleteStudentAsync(string email);
     }
 }

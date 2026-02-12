@@ -25,7 +25,4 @@ namespace EduTrack.Dtos {
         public bool TermsAccepted { get; set; }
     }
 
-    public class StudentAddResponse {
-        public string Message { get; set; } = string.Empty;
-    }
 }

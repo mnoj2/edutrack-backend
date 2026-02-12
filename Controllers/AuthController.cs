@@ -1,8 +1,8 @@
-﻿using EduTrack.API.Dtos;
-using EduTrack.API.Interfaces;
+﻿using EduTrack.Dtos;
+using EduTrack.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EduTrack.API.Controllers {
+namespace EduTrack.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase {
@@ -17,9 +17,9 @@ namespace EduTrack.API.Controllers {
 
             var result = await _authService.LoginAsync(request);
             if(result is null) {
-                return Unauthorized("Invalid Credentials");
+                return Unauthorized(new { Message = "login failed: invalid credentials" });
             }
-            return Ok(result);
+            return Ok(new { Message = result });
         }
     }
 }

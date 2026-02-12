@@ -1,52 +1,37 @@
-﻿using EduTrack.API.Interfaces;
-using EduTrack.API.Models;
+﻿using EduTrack.Interfaces;
+using EduTrack.Models;
 using EduTrack.Dtos;
 using System.Text.Json;
+using EduTrack.Helpers;
 
-namespace EduTrack.API.Services {
+namespace EduTrack.Services {
     public class StudentService : IStudentService {
 
         private readonly IConfiguration _config;
         private readonly ILogger<StudentService> _logger;
+        private readonly string _studentFilePath;
 
         public StudentService(IConfiguration config, ILogger<StudentService> logger) {
             _config = config;
             _logger = logger;
+            _studentFilePath = config["FilePath:Students"] ?? throw new Exception("Student data filepath is not configured");
         }
 
         public async Task<List<Student>?> GetStudentsAsync() {
-
-            string filePath = _config["FilePath:Students"];
-            var jsonData = await System.IO.File.ReadAllTextAsync(filePath);
-            var studentsData = JsonSerializer.Deserialize<List<Student>>(jsonData);
-
-            if(studentsData is not null) {
-                _logger.LogInformation("Student Data FullName: {FullName}", studentsData[0].FullName);
-                return studentsData;
-            }
-
-            return null;
+            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath);
+            _logger.LogInformation("Student Data: {Data}", studentsData);
+            return studentsData;
         }
 
         public async Task<int?> GetStudentsCountAsync() {
-
-            string filePath = _config["FilePath:Students"];
-            var jsonData = await System.IO.File.ReadAllTextAsync(filePath);
-            var studentsData = JsonSerializer.Deserialize<List<Student>>(jsonData);
-
-            if(studentsData is not null) {
-                _logger.LogInformation("Students Data: {Count}", studentsData.Count);
-                return studentsData.Count;
-            }
-
-            return null;
+            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath) ?? [];
+            _logger.LogInformation("Students Data: {Count}", studentsData.Count);
+            return studentsData.Count;
         }
 
-        public async Task<StudentAddResponse?> AddStudentAsync(StudentAddRequest student) {
+        public async Task<string?> AddStudentAsync(StudentAddRequest student) {
 
-            string filePath = _config["FilePath:Students"];
-            var jsonData = await System.IO.File.ReadAllTextAsync(filePath);
-            var studentsData = JsonSerializer.Deserialize<List<Student>>(jsonData);
+            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath) ?? [];
 
             var isEmailExists = studentsData.Any(s => s.Email == student.Email);
             if(isEmailExists)
@@ -62,15 +47,28 @@ namespace EduTrack.API.Services {
                 Course = student.Course,
                 TermsAccepted = student.TermsAccepted
             };
-
             studentsData.Add(newStudent);
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            var newjsonData = JsonSerializer.Serialize(studentsData, options);
-            await System.IO.File.WriteAllTextAsync(_config["FilePath:Students"], newjsonData);
+            await FileHelper.WriteToJsonAsync(_studentFilePath, studentsData);
 
-            return new StudentAddResponse {
-                Message = "Student Added Successfully"
-            };
+            return "Student Added Successfully";
         }
+
+        public async Task<string?> DeleteStudentAsync(string email) {
+
+            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath) ?? [];
+            int initialCount = studentsData.Count;
+
+            studentsData.RemoveAll(s => s.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            int newCount = studentsData.Count;
+
+            if(initialCount == newCount) {
+                return null;
+            }
+
+            await FileHelper.WriteToJsonAsync(_studentFilePath, studentsData);
+
+            return "Student deleted successfully";
+        }
+
     }
 }

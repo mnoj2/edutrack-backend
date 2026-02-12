@@ -1,45 +1,5 @@
 [
   {
-    "Id": 1,
-    "FullName": "James Miller",
-    "Email": "james.miller@gmail.com",
-    "MobileNumber": "9820012345",
-    "DateOfBirth": "2005-05-15",
-    "Gender": "Male",
-    "Course": "CSE",
-    "TermsAccepted": true
-  },
-  {
-    "Id": 2,
-    "FullName": "Sarah Jenkins",
-    "Email": "sarah.j.99@gmail.com",
-    "MobileNumber": "8104456789",
-    "DateOfBirth": "2006-02-28",
-    "Gender": "Female",
-    "Course": "IT",
-    "TermsAccepted": true
-  },
-  {
-    "Id": 3,
-    "FullName": "Michael Dawson",
-    "Email": "dawson.michael@gmail.com",
-    "MobileNumber": "7506612344",
-    "DateOfBirth": "2004-11-12",
-    "Gender": "Male",
-    "Course": "ECE",
-    "TermsAccepted": true
-  },
-  {
-    "Id": 4,
-    "FullName": "Emily Thompson",
-    "Email": "emily.t.dev@gmail.com",
-    "MobileNumber": "9988776655",
-    "DateOfBirth": "2005-09-20",
-    "Gender": "Female",
-    "Course": "EEE",
-    "TermsAccepted": true
-  },
-  {
     "Id": 5,
     "FullName": "Robert Wilson",
     "Email": "wilson.robert@gmail.com",
@@ -490,21 +450,31 @@
     "TermsAccepted": true
   },
   {
-    "Id": 50,
-    "FullName": "Kelly James",
-    "Email": "k.james@gmail.com",
-    "MobileNumber": "8121122334",
-    "DateOfBirth": "2006-07-03",
-    "Gender": "Female",
-    "Course": "IT",
-    "TermsAccepted": true
-  },
-  {
     "Id": 51,
     "FullName": "Gurbaz",
     "Email": "gurbaz73@gmail.com",
     "MobileNumber": "7904976644",
     "DateOfBirth": "2005-01-01",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 52,
+    "FullName": "Mirtal",
+    "Email": "mirtal56@gmail.com",
+    "MobileNumber": "5698741256",
+    "DateOfBirth": "2005-01-01",
+    "Gender": "Female",
+    "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 53,
+    "FullName": "Manojkumar",
+    "Email": "manojkumarg240@gmail.com",
+    "MobileNumber": "7904978833",
+    "DateOfBirth": "2005-02-25",
     "Gender": "Male",
     "Course": "CSE",
     "TermsAccepted": true
