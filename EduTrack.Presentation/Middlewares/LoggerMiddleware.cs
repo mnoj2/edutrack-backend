@@ -1,4 +1,4 @@
-﻿namespace EduTrack.Middlewares
+﻿namespace EduTrack.EduTrack.Presentation.Middlewares
 {
     public class LoggerMiddleware
     {

@@ -1,4 +1,4 @@
-﻿namespace EduTrack.Models {
+﻿namespace EduTrack.EduTrack.Data.Models {
     public class Student {
         public int Id { get; set; }
         public string FullName { get; set; } = string.Empty;

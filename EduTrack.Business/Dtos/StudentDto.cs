@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EduTrack.Dtos {
+namespace EduTrack.EduTrack.Business.Dtos {
     public class StudentAddRequest {
 
         [Required(ErrorMessage = "FullName is required")]

@@ -1,4 +1,4 @@
-﻿namespace EduTrack.Models {
+﻿namespace EduTrack.EduTrack.Data.Models {
     public class User {
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;

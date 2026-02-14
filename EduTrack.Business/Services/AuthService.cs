@@ -1,9 +1,9 @@
-﻿using EduTrack.Dtos;
-using EduTrack.Helpers;
-using EduTrack.Interfaces;
-using EduTrack.Models;
+﻿using EduTrack.EduTrack.Business.Dtos;
+using EduTrack.EduTrack.Business.Interfaces;
+using EduTrack.EduTrack.Data.Helpers;
+using EduTrack.EduTrack.Data.Models;
 
-namespace EduTrack.Services {
+namespace EduTrack.EduTrack.Business.Services {
     public class AuthService : IAuthService {
 
         private readonly IConfiguration _config;
@@ -24,7 +24,7 @@ namespace EduTrack.Services {
 
             if(userData is not null && (userData.Username == request.Username && userData.Password == request.Password))  {
                 _logger.LogInformation("Login attempt successful for User: {Username}", request.Username);
-                return "login successful";
+                return "Login successful";
             }
 
             _logger.LogWarning("Login failed for User: {Username}", request.Username);

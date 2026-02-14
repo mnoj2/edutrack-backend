@@ -1,15 +1,5 @@
 [
   {
-    "Id": 5,
-    "FullName": "Robert Wilson",
-    "Email": "wilson.robert@gmail.com",
-    "MobileNumber": "8877665544",
-    "DateOfBirth": "2003-01-05",
-    "Gender": "Male",
-    "Course": "MECH",
-    "TermsAccepted": true
-  },
-  {
     "Id": 6,
     "FullName": "Jessica Taylor",
     "Email": "jess.taylor@gmail.com",
@@ -477,6 +467,36 @@
     "DateOfBirth": "2005-02-25",
     "Gender": "Male",
     "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 54,
+    "FullName": "Glenn",
+    "Email": "glenn31@gmail.com",
+    "MobileNumber": "7904568811",
+    "DateOfBirth": "2005-01-12",
+    "Gender": "Male",
+    "Course": "MECH",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 55,
+    "FullName": "Michael",
+    "Email": "michael59@gmail.com",
+    "MobileNumber": "7904976633",
+    "DateOfBirth": "2005-01-01",
+    "Gender": "Male",
+    "Course": "CSE",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 56,
+    "FullName": "Jessica Taylor",
+    "Email": "jess.swift@gmail.com",
+    "MobileNumber": "9122334455",
+    "DateOfBirth": "2004-08-14",
+    "Gender": "Female",
+    "Course": "CIVIL",
     "TermsAccepted": true
   }
 ]

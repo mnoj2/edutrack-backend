@@ -1,7 +1,7 @@
-﻿using EduTrack.Models;
-using EduTrack.Dtos;
+﻿using EduTrack.EduTrack.Business.Dtos;
+using EduTrack.EduTrack.Data.Models;
 
-namespace EduTrack.Interfaces {
+namespace EduTrack.EduTrack.Business.Interfaces {
     public interface IStudentService {
 
         Task<List<Student>?> GetStudentsAsync();

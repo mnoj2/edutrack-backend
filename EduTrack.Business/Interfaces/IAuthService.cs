@@ -1,6 +1,6 @@
-﻿using EduTrack.Dtos;
+﻿using EduTrack.EduTrack.Business.Dtos;
 
-namespace EduTrack.Interfaces {
+namespace EduTrack.EduTrack.Business.Interfaces {
     public interface IAuthService {
 
         Task<string?> LoginAsync(LoginRequest request);

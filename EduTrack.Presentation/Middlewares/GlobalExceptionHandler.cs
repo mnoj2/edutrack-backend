@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EduTrack.Middlewares {
+namespace EduTrack.EduTrack.Presentation.Middlewares {
     public class GlobalExceptionHandler : IExceptionHandler {
 
         private readonly ILogger<GlobalExceptionHandler> _logger;

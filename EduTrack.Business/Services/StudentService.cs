@@ -1,10 +1,9 @@
-﻿using EduTrack.Interfaces;
-using EduTrack.Models;
-using EduTrack.Dtos;
-using System.Text.Json;
-using EduTrack.Helpers;
+﻿using EduTrack.EduTrack.Data.Helpers;
+using EduTrack.EduTrack.Data.Models;
+using EduTrack.EduTrack.Business.Dtos;
+using EduTrack.EduTrack.Business.Interfaces;
 
-namespace EduTrack.Services {
+namespace EduTrack.EduTrack.Business.Services {
     public class StudentService : IStudentService {
 
         private readonly IConfiguration _config;
@@ -38,7 +37,7 @@ namespace EduTrack.Services {
                 return null;
 
             var newStudent = new Student {
-                Id = (studentsData.Any() ? studentsData.Max(s => s.Id) + 1 : 1),
+                Id = studentsData.Count > 0 ? studentsData.Max(s => s.Id) + 1 : 1,
                 FullName = student.FullName,
                 Email = student.Email,
                 DateOfBirth = student.DateOfBirth,
@@ -50,7 +49,7 @@ namespace EduTrack.Services {
             studentsData.Add(newStudent);
             await FileHelper.WriteToJsonAsync(_studentFilePath, studentsData);
 
-            return "Student Added Successfully";
+            return "Student added successfully";
         }
 
         public async Task<string?> DeleteStudentAsync(string email) {

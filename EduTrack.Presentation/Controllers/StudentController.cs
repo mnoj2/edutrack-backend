@@ -1,8 +1,8 @@
-﻿using EduTrack.Interfaces;
-using EduTrack.Dtos;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using EduTrack.EduTrack.Business.Dtos;
+using EduTrack.EduTrack.Business.Interfaces;
 
-namespace EduTrack.Controllers {
+namespace EduTrack.EduTrack.Presentation.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase {
@@ -28,23 +28,25 @@ namespace EduTrack.Controllers {
         public async Task<IActionResult> AddStudent([FromBody] StudentAddRequest request) {
             var result = await _studentService.AddStudentAsync(request);
             if(result is null) {
-                return Unauthorized(new { Message = "Student with this email already exists" });
+                return Conflict(new Response{ Message = "Student with this email already exists" });
             }
-            return Ok(new { Message = result });
+
+            return Created("", new { Message = result });
         }
 
         [HttpDelete("{email}")]
         public async Task<IActionResult> DeleteStudent(string? email) {
 
             if(string.IsNullOrWhiteSpace(email)) {
-                return BadRequest(new { Message = "Email is required to delete a student" });
+                return BadRequest(new Response{ Message = "Email is required to delete a student" });
             }
 
             var result = await _studentService.DeleteStudentAsync(email);
             if(result is null) {
-                return NotFound(new { Message = "Student with this email is not found" });
+                return NotFound(new Response{ Message = "Student with this email is not found" });
             }
-            return Ok(new { Message = result });
+
+            return Ok(new Response{ Message = result });
         }
     }
 }

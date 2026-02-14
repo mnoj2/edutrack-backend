@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace EduTrack.Helpers {
+namespace EduTrack.EduTrack.Data.Helpers {
     public class FileHelper {
         public static async Task<T?> ReadFromJsonAsync<T>(string filePath) {
 

@@ -1,6 +1,6 @@
-using EduTrack.Interfaces;
-using EduTrack.Middlewares;
-using EduTrack.Services;
+using EduTrack.EduTrack.Business.Interfaces;
+using EduTrack.EduTrack.Business.Services;
+using EduTrack.EduTrack.Presentation.Middlewares;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,8 +28,7 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
     app.MapOpenApi();
     app.MapScalarApiReference();
     app.UseSwagger();
@@ -38,13 +37,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<LoggerMiddleware>();
 
+app.UseExceptionHandler();
+
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAngular");
 
 app.UseAuthorization();
-
-app.UseExceptionHandler();
 
 app.MapControllers();
 
