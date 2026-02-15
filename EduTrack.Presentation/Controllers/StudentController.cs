@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EduTrack.EduTrack.Business.Dtos;
 using EduTrack.EduTrack.Business.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EduTrack.EduTrack.Presentation.Controllers {
     [Route("api/[controller]")]
@@ -18,6 +19,7 @@ namespace EduTrack.EduTrack.Presentation.Controllers {
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("count")]
         public async Task<IActionResult> GetStudentsCount() {
             var result = await _studentService.GetStudentsCountAsync();

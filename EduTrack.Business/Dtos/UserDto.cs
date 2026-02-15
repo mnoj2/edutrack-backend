@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace EduTrack.EduTrack.Business.Dtos {
-    public class LoginRequest {
+    public class UserDto {
 
         [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; } = string.Empty;
