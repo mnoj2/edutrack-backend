@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EduTrack.EduTrack.Business.Dtos;
 using EduTrack.EduTrack.Business.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EduTrack.EduTrack.Presentation.Controllers {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class StudentController : ControllerBase {
 

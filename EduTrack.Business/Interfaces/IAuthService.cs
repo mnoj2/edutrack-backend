@@ -2,7 +2,7 @@
 
 namespace EduTrack.EduTrack.Business.Interfaces {
     public interface IAuthService {
-
-        Task<string?> LoginAsync(LoginRequest request);
+        Task<TokenResponseDto?> LoginAsync(UserDto request);
+        Task<string?> RegisterAsync(UserDto request);
     }
 }
