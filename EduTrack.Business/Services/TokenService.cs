@@ -35,7 +35,7 @@ namespace EduTrack.EduTrack.Business.Services {
                 issuer: _config.GetValue<string>("Jwt:Issuer"),
                 audience: _config.GetValue<string>("Jwt:Audience"),
                 claims: claims,
-                expires: DateTime.UtcNow.AddDays(7),
+                expires: DateTime.UtcNow.AddMinutes(15),
                 signingCredentials: creds
             );
 

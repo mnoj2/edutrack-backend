@@ -1,43 +1,36 @@
-﻿using EduTrack.EduTrack.Data.Helpers;
-using EduTrack.EduTrack.Data.Models;
-using EduTrack.EduTrack.Business.Dtos;
+﻿using EduTrack.EduTrack.Business.Dtos;
 using EduTrack.EduTrack.Business.Interfaces;
+using EduTrack.EduTrack.Data.Data.Interfaces;
+using EduTrack.EduTrack.Data.Models;
 
 namespace EduTrack.EduTrack.Business.Services {
     public class StudentService : IStudentService {
 
-        private readonly IConfiguration _config;
+        private readonly IStudentRepository _studentRepository;
         private readonly ILogger<StudentService> _logger;
-        private readonly string _studentFilePath;
 
-        public StudentService(IConfiguration config, ILogger<StudentService> logger) {
-            _config = config;
+        public StudentService(IStudentRepository studentRepository, ILogger<StudentService> logger) {
+            _studentRepository = studentRepository;
             _logger = logger;
-            _studentFilePath = config["FilePath:Students"] ?? throw new Exception("Student data filepath is not configured");
         }
 
         public async Task<List<Student>?> GetStudentsAsync() {
-            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath);
-            _logger.LogInformation("Student Data: {Data}", studentsData);
-            return studentsData;
+            return await _studentRepository.GetAllAsync();
         }
 
         public async Task<int?> GetStudentsCountAsync() {
-            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath) ?? [];
-            _logger.LogInformation("Students Data: {Count}", studentsData.Count);
-            return studentsData.Count;
+            var students = await _studentRepository.GetAllAsync();
+            return students.Count;
         }
 
         public async Task<string?> AddStudentAsync(StudentAddRequest student) {
-
-            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath) ?? [];
-
-            var isEmailExists = studentsData.Any(s => s.Email == student.Email);
-            if(isEmailExists)
+            var existing = await _studentRepository.GetByEmailAsync(student.Email);
+            if(existing != null)
                 return null;
 
+            var students = await _studentRepository.GetAllAsync();
             var newStudent = new Student {
-                Id = studentsData.Count > 0 ? studentsData.Max(s => s.Id) + 1 : 1,
+                Id = students.Count > 0 ? students.Max(s => s.Id) + 1 : 1,
                 FullName = student.FullName,
                 Email = student.Email,
                 DateOfBirth = student.DateOfBirth,
@@ -46,28 +39,18 @@ namespace EduTrack.EduTrack.Business.Services {
                 Course = student.Course,
                 TermsAccepted = student.TermsAccepted
             };
-            studentsData.Add(newStudent);
-            await FileHelper.WriteToJsonAsync(_studentFilePath, studentsData);
 
+            await _studentRepository.AddStudentAsync(newStudent);
             return "Student added successfully";
         }
 
         public async Task<string?> DeleteStudentAsync(string email) {
-
-            var studentsData = await FileHelper.ReadFromJsonAsync<List<Student>>(_studentFilePath) ?? [];
-            int initialCount = studentsData.Count;
-
-            studentsData.RemoveAll(s => s.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
-            int newCount = studentsData.Count;
-
-            if(initialCount == newCount) {
+            var existing = await _studentRepository.GetByEmailAsync(email);
+            if(existing == null)
                 return null;
-            }
 
-            await FileHelper.WriteToJsonAsync(_studentFilePath, studentsData);
-
+            await _studentRepository.DeleteStudentAsync(email);
             return "Student deleted successfully";
         }
-
     }
 }
