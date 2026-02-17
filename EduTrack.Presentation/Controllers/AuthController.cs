@@ -1,7 +1,5 @@
 ﻿using EduTrack.EduTrack.Business.Dtos;
 using EduTrack.EduTrack.Business.Interfaces;
-using EduTrack.EduTrack.Data.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EduTrack.EduTrack.Presentation.Controllers {

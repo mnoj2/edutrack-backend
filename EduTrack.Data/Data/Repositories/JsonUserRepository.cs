@@ -3,11 +3,11 @@ using EduTrack.EduTrack.Data.Helpers;
 using EduTrack.EduTrack.Data.Models;
 
 namespace EduTrack.EduTrack.Data.Repositories {
-    public class UserRepository : IUserRepository {
+    public class JsonUserRepository : IUserRepository {
 
         private readonly string _filePath;
 
-        public UserRepository(IConfiguration config) {
+        public JsonUserRepository(IConfiguration config) {
             _filePath = config["FilePath:User"] ?? throw new Exception("User path not configured");
         }
 

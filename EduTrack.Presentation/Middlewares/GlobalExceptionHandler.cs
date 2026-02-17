@@ -18,7 +18,7 @@ namespace EduTrack.EduTrack.Presentation.Middlewares {
             var problemDetail = new ProblemDetails {
                 Status = StatusCodes.Status500InternalServerError,
                 Title = "Server Error",
-                Detail = _env.IsDevelopment() ? exception.Message : "An unexpected error occurred, please try again later",
+                Detail = _env.IsDevelopment() ? exception.Message : "An unexpected error occurred",
                 Instance = httpContext.Request.Path
             };
 

@@ -61,9 +61,6 @@ namespace EduTrack.EduTrack.Business.Services {
 
         public async Task<TokenResponseDto?> RefreshTokenAsync(RefreshTokenRequestDto request) {
             var user = await ValidateRefreshTokenAsync(request.UserId, request.RefreshToken);
-            if (user == null) {
-                return null;
-            }
 
             var response = new TokenResponseDto {
                 AccessToken = CreateToken(user),
