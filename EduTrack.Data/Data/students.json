@@ -1,25 +1,5 @@
 [
   {
-    "Id": 6,
-    "FullName": "Jessica Taylor",
-    "Email": "jess.taylor@gmail.com",
-    "MobileNumber": "9122334455",
-    "DateOfBirth": "2004-08-14",
-    "Gender": "Female",
-    "Course": "CIVIL",
-    "TermsAccepted": true
-  },
-  {
-    "Id": 7,
-    "FullName": "David Anderson",
-    "Email": "d.anderson@gmail.com",
-    "MobileNumber": "9845012345",
-    "DateOfBirth": "2005-03-10",
-    "Gender": "Male",
-    "Course": "CSE",
-    "TermsAccepted": true
-  },
-  {
     "Id": 8,
     "FullName": "Ashley Moore",
     "Email": "ashley.m88@gmail.com",
