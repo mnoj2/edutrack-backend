@@ -5,7 +5,7 @@ namespace EduTrack.EduTrack.Data.Helpers {
         public static async Task<T?> ReadFromJsonAsync<T>(string filePath) {
 
             var jsonData = await File.ReadAllTextAsync(filePath);
-            return JsonSerializer.Deserialize<T>(jsonData);
+            return JsonSerializer.Deserialize<T>(jsonData); 
         }
 
         public static async Task WriteToJsonAsync<T>(string filePath, T data) {

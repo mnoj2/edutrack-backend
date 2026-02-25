@@ -10,6 +10,7 @@ namespace EduTrack.EduTrack.Presentation.Controllers {
         private readonly IAuthService _authService;
         private readonly ITokenService _tokenService;
         public AuthController(IAuthService authService, ITokenService tokenService) {
+
             _authService = authService;
             _tokenService = tokenService;
         }
@@ -21,7 +22,6 @@ namespace EduTrack.EduTrack.Presentation.Controllers {
             if(result is null) {
                 return Unauthorized(new Response { Message = "Login failed: Invalid credentials" });
             }
-
             return Ok(result);
         }
 
@@ -32,12 +32,12 @@ namespace EduTrack.EduTrack.Presentation.Controllers {
             if(result is null) {
                 return Conflict(new Response { Message = "Register failed: User already exists" });
             }
-
             return Ok(new Response { Message = result });
         }
 
         [HttpPost("refresh")]
         public async Task<ActionResult<TokenResponseDto?>> RefreshToken(RefreshTokenRequestDto request) {
+
             var result = await _tokenService.RefreshTokenAsync(request);
             if(result is null) {
                 return Unauthorized(new Response { Message = "Token refresh failed: Invalid token" });

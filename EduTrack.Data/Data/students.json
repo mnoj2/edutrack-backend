@@ -1,15 +1,5 @@
 [
   {
-    "Id": 8,
-    "FullName": "Ashley Moore",
-    "Email": "ashley.m88@gmail.com",
-    "MobileNumber": "7204455667",
-    "DateOfBirth": "2006-07-22",
-    "Gender": "Female",
-    "Course": "IT",
-    "TermsAccepted": true
-  },
-  {
     "Id": 9,
     "FullName": "Christopher Lee",
     "Email": "chris.lee.dev@gmail.com",
@@ -380,16 +370,6 @@
     "TermsAccepted": true
   },
   {
-    "Id": 46,
-    "FullName": "Victoria Torres",
-    "Email": "v.torres@gmail.com",
-    "MobileNumber": "8890011223",
-    "DateOfBirth": "2005-01-26",
-    "Gender": "Female",
-    "Course": "EEE",
-    "TermsAccepted": true
-  },
-  {
     "Id": 47,
     "FullName": "Lawrence Peterson",
     "Email": "l.peterson@gmail.com",
@@ -477,6 +457,16 @@
     "DateOfBirth": "2004-08-14",
     "Gender": "Female",
     "Course": "CIVIL",
+    "TermsAccepted": true
+  },
+  {
+    "Id": 57,
+    "FullName": "test",
+    "Email": "test@gmail.com",
+    "MobileNumber": "7904978844",
+    "DateOfBirth": "2005-01-11",
+    "Gender": "Male",
+    "Course": "CSE",
     "TermsAccepted": true
   }
 ]
