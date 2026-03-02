@@ -22,6 +22,7 @@ namespace EduTrack.EduTrack.Data.Repositories {
 
         public async Task AddStudentAsync(Student student) {
             var students = await GetAllAsync();
+            student.Id = students.Count > 0 ? students.Max(s => s.Id) + 1 : 1;
             students.Add(student);
             await FileHelper.WriteToJsonAsync(_filePath, students);
         }

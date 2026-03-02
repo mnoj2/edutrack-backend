@@ -30,7 +30,6 @@ namespace EduTrack.EduTrack.Business.Services {
 
             var students = await _studentRepository.GetAllAsync();
             var newStudent = new Student {
-                Id = students.Count > 0 ? students.Max(s => s.Id) + 1 : 1,
                 FullName = student.FullName,
                 Email = student.Email,
                 DateOfBirth = student.DateOfBirth,
