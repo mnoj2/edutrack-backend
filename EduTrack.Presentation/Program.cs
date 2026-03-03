@@ -43,7 +43,7 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddScoped<IUserRepository, SqlUserRepository>();
-builder.Services.AddScoped<IStudentRepository, JsonStudentRepository>();
+builder.Services.AddScoped<IStudentRepository, SqlStudentRepository>();
 builder.Services.AddScoped<ITokenRepository, SqlTokenRepository>();
 
 
