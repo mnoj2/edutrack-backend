@@ -18,6 +18,7 @@ namespace EduTrack.EduTrack.Business.Services {
         }
 
         public async Task<TokenResponseDto?> LoginAsync(UserDto request) {
+
             var user = await _userRepository.GetByUsernameAsync(request.Username);
 
             if(user is null)
@@ -37,6 +38,7 @@ namespace EduTrack.EduTrack.Business.Services {
         }
 
         public async Task<string?> RegisterAsync(UserDto request) {
+
             var existing = await _userRepository.GetByUsernameAsync(request.Username);
             if(existing is not null)
                 return null;

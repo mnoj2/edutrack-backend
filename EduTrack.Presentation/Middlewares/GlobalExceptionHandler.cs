@@ -13,7 +13,7 @@ namespace EduTrack.EduTrack.Presentation.Middlewares {
         }
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken) {
 
-            _logger.LogError("An unhandled exception occurred: {Message}", exception.Message);
+            _logger.LogError("An unhandled exception occurred: {Exception}", exception);
 
             var problemDetail = new ProblemDetails {
                 Status = StatusCodes.Status500InternalServerError,

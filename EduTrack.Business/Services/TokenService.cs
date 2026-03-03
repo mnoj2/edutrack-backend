@@ -1,5 +1,6 @@
 ﻿using EduTrack.EduTrack.Business.Dtos;
 using EduTrack.EduTrack.Business.Interfaces;
+using EduTrack.EduTrack.Data.Data.Interfaces;
 using EduTrack.EduTrack.Data.Helpers;
 using EduTrack.EduTrack.Data.Models;
 using Microsoft.IdentityModel.Tokens;
@@ -13,11 +14,12 @@ namespace EduTrack.EduTrack.Business.Services {
     public class TokenService : ITokenService {
 
         private readonly IConfiguration _config;
-        private readonly string _userFilePath;
 
-        public TokenService(IConfiguration config) {
+        private readonly ITokenRepository _tokenRepository;
+
+        public TokenService(IConfiguration config, ITokenRepository tokenRepository) {
             _config = config;
-            _userFilePath = config["FilePath:User"] ?? throw new Exception("User data filepath is not configured");
+            _tokenRepository = tokenRepository;
         }
 
         public string CreateToken(User user) {
@@ -30,7 +32,7 @@ namespace EduTrack.EduTrack.Business.Services {
                 Encoding.UTF8.GetBytes(_config.GetValue<string>("Jwt:Key")!)
             );
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            
+
             var tokenDescriptor = new JwtSecurityToken(
                 issuer: _config.GetValue<string>("Jwt:Issuer"),
                 audience: _config.GetValue<string>("Jwt:Audience"),
@@ -41,21 +43,14 @@ namespace EduTrack.EduTrack.Business.Services {
 
             return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
-        
+
         public async Task<string> GenerateAndStoreRefreshTokenAsync(User user) {
 
             var refreshToken = GenerateRefreshToken();
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
 
-            var users = await FileHelper.ReadFromJsonAsync<List<User>>(_userFilePath);
-            var userInFile = users.FirstOrDefault(u => u.Id == user.Id);
-            if(userInFile != null) {
-                userInFile.RefreshToken = user.RefreshToken;
-                userInFile.RefreshTokenExpiryTime = user.RefreshTokenExpiryTime;
-                await FileHelper.WriteToJsonAsync(_userFilePath, users);
-            }
-
+            await _tokenRepository.StoreRefreshTokenAsync(user);
             return refreshToken;
         }
 
@@ -72,9 +67,10 @@ namespace EduTrack.EduTrack.Business.Services {
         }
 
         private async Task<User?> ValidateRefreshTokenAsync(Guid userId, string refreshToken) {
-            var users = await FileHelper.ReadFromJsonAsync<List<User>>(_userFilePath);
-            var user = users.FirstOrDefault(u => u.Id == userId);
-            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow) {
+
+            var user = await _tokenRepository.GetUserByIdAsync(userId);
+
+            if(user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow) {
                 return null;
             }
             return user;
@@ -83,7 +79,7 @@ namespace EduTrack.EduTrack.Business.Services {
         private string GenerateRefreshToken() {
 
             var randomNumber = new byte[32];
-            using (var rng = RandomNumberGenerator.Create()) {
+            using(var rng = RandomNumberGenerator.Create()) {
                 rng.GetBytes(randomNumber);
                 return Convert.ToBase64String(randomNumber);
             }

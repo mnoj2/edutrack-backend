@@ -1,6 +1,7 @@
 using EduTrack.EduTrack.Business.Interfaces;
 using EduTrack.EduTrack.Business.Services;
 using EduTrack.EduTrack.Data.Data.Interfaces;
+using EduTrack.EduTrack.Data.Data.Repositories;
 using EduTrack.EduTrack.Data.Repositories;
 using EduTrack.EduTrack.Presentation.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,11 +10,10 @@ using Scalar.AspNetCore;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
 
+builder.Services.AddControllers();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddOpenApi();
@@ -25,7 +25,6 @@ builder.Services.AddCors(options => {
               .AllowAnyHeader();
     });
 });
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options => {
         options.TokenValidationParameters = new TokenValidationParameters {
@@ -43,26 +42,24 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-builder.Services.AddScoped<IUserRepository, JsonUserRepository>();
+builder.Services.AddScoped<IUserRepository, SqlUserRepository>();
 builder.Services.AddScoped<IStudentRepository, JsonStudentRepository>();
+builder.Services.AddScoped<ITokenRepository, SqlTokenRepository>();
+
 
 var app = builder.Build();
+
 if (app.Environment.IsDevelopment()) {
     app.MapOpenApi();
     app.MapScalarApiReference();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseMiddleware<LoggerMiddleware>();
 app.UseExceptionHandler();
-
 app.UseHttpsRedirection();
-
 app.UseCors("AllowAngular");
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 app.Run();
